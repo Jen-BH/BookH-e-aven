@@ -115,7 +115,16 @@ function renderLibrary() {
   const library = document.getElementById('library');
   library.innerHTML = ''; // Clear existing library
 
-  const books = JSON.parse(localStorage.getItem('books')) || [];
+  // Manually adding the book "Confessions of the Dead" to the library
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  // Add the Confessions of the Dead book manually here
+  books.push({
+    title: "Confessions of the Dead",
+    author: "James Patterson & J.D. Barker",
+    genre: "Thriller, Horror",
+    synopsis: "A chilling and intense tale of mortality and suspense, exploring deep human emotions in the face of death.",
+    cover: "https://covers.openlibrary.org/b/id/1234567-L.jpg"  // Update with actual cover image URL
+  });
 
   books.forEach(book => {
     const bookHTML = `
